@@ -7,6 +7,7 @@ const envs = {
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
     host: '127.0.0.1',
+    port: 5432,
     dialect: 'postgres',
   },
   test: {
@@ -14,6 +15,7 @@ const envs = {
     password: process.env.TEST_PASS,
     database: process.env.TEST_NAME,
     host: '127.0.0.1',
+    port: 5432,
     dialect: 'postgres',
   },
   production: {
@@ -26,4 +28,4 @@ const envs = {
 };
 
 // module.exports = envs[process.env.NODE_ENV || 'development'];
-export default envs[process.env.NODE_ENV || 'development'];
+module.exports = envs[process.env.NODE_ENV || 'development'];
