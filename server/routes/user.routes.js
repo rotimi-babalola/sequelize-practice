@@ -1,9 +1,9 @@
 import express from 'express';
-import todoController from '../controllers/todos.controller';
+import userController from '../controllers/user.controller';
 
 const router = express.Router();
 
 router.route('/')
-  .post(todoController.createTodo);
+  .post(userController.createUser);
 
 export default router;

@@ -10,9 +10,6 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        min: 6,
-      },
     },
   }, {});
   User.associate = (models) => {
