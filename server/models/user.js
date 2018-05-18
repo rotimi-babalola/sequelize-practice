@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 'use strict';
 /* eslint no-undef:0 */
 module.exports = (sequelize, DataTypes) => {
@@ -11,7 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  }, {});
+  }, {
+      hooks: {
+        beforeCreate: (user) => {
+          user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10));
+        },
+      },
+    });
   User.associate = (models) => {
     // associations can be defined here
     User.hasMany(models.Todo, {
