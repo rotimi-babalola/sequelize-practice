@@ -28,4 +28,4 @@ const envs = {
 };
 
 // module.exports = envs[process.env.NODE_ENV || 'development'];
-module.exports = envs[process.env.NODE_ENV || 'development'];
+module.exports = envs;
