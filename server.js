@@ -11,7 +11,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/api/todo', todoRoutes);
+app.use('/api/todos', todoRoutes);
 app.use('/api/users', userRoutes);
 
 // Setup a default catch-all route that sends back a welcome message in JSON format.
