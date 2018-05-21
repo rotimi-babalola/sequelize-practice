@@ -2,16 +2,24 @@
 /* eslint no-undef:0 */
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Todos', {
+    return queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
+      userName: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
+      },
+      password: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+          len: [6],
+        },
       },
       createdAt: {
         allowNull: false,
@@ -21,19 +29,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        allowNull: false,
-        references: {
-          model: 'Users',
-          key: 'id',
-          as: 'userId',
-        },
-      },
     });
   },
   down: (queryInterface) => {
-    return queryInterface.dropTable('Todos');
+    return queryInterface.dropTable('Users');
   },
 };
