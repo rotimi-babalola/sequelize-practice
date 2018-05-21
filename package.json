@@ -37,6 +37,7 @@
     "morgan": "^1.9.0",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.37.7"
+    "sequelize": "^4.37.7",
+    "validator": "^10.2.0"
   }
 }
